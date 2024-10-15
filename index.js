@@ -10,6 +10,8 @@ mongoose.connect('mongodb://localhost:27017/tasksdb')
 .then(() => console.log('DB Connected'))
 .catch(err => console.error('DB Failed', err));
 
+
+
 app.get('/tasks', async (req, res) => {
   try {
     const tasks = await Task.find();
