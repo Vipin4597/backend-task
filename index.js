@@ -1,12 +1,13 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const Task = require('./taskSchema.js');
+require('dotenv').config()
 
 const app = express();
 
 app.use(express.json());
 
-mongoose.connect('mongodb://localhost:27017/tasksdb')
+mongoose.connect(process.env.MONGO_URI)
 .then(() => console.log('DB Connected'))
 .catch(err => console.error('DB Failed', err));
 
