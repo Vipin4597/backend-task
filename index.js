@@ -6,7 +6,7 @@ const app = express();
 
 app.use(express.json());
 
-mongoose.connect('mongodb://localhost:3000/tasksdb')
+mongoose.connect('mongodb://localhost:27017/tasksdb')
 .then(() => console.log('DB Connected'))
 .catch(err => console.error('DB Failed', err));
 
