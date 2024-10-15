@@ -15,6 +15,11 @@ mongoose.connect('mongodb://localhost:27017/tasksdb')
 app.get('/tasks', async (req, res) => {
   try {
     const tasks = await Task.find();
+    if(!tasks || tasks.length === 0) {
+      return res.status(505).json({
+        message:"No task"
+      })
+    }
     res.json(tasks);
   } catch (err) {
     res.status(500).json({ error: err.message });
